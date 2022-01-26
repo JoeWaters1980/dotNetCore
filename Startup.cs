@@ -37,13 +37,13 @@ namespace HealthCheck
                 {
                     OnPrepareResponse = (context) =>
                     {
-                       // Disable caching for all satatic files.
-                       context.Context.Response.Headers["Cache-Control"] =
-                        "no-cache, no-store";
+                        // Disable caching for all satatic files.
+                        context.Context.Response.Headers["Cache-Control"] =
+                       Configuration["StaticFlies:Headers:Cache-Control"];
                         context.Context.Response.Headers["Pragma"] =
-                        "no-cache";
+                       Configuration["StaticFlies:Headers:Pragma"];
                         context.Context.Response.Headers["Expires"] =
-                        "-1";
+                        Configuration["StaticFlies:Headers:Expires"];
                     }
                 });
             }
